@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Liquid Gastronomy Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "error": "#ba1a1a",
+            "surface": "#fff9f0",
+            "on-primary-fixed": "#221b00",
+            "tertiary-fixed-dim": "#ffb3b0",
+            "surface-container-highest": "#e7e2d9",
+            "inverse-surface": "#32302a",
+            "secondary-fixed": "#96f89f",
+            "on-background": "#1d1b16",
+            "on-tertiary-fixed-variant": "#8c1520",
+            "tertiary-container": "#ffd1ce",
+            "on-surface": "#1d1b16",
+            "on-tertiary-container": "#b03136",
+            "on-tertiary-fixed": "#410006",
+            "on-secondary-fixed": "#002107",
+            "on-error-container": "#93000a",
+            "secondary": "#006e29",
+            "surface-dim": "#dfd9d1",
+            "inverse-on-surface": "#f6f0e7",
+            "primary-fixed-dim": "#e8c426",
+            "outline": "#7e7761",
+            "outline-variant": "#d0c6ad",
+            "surface-tint": "#705d00",
+            "primary-fixed": "#ffe173",
+            "primary-container": "#ffd93d",
+            "on-surface-variant": "#4d4633",
+            "surface-variant": "#e7e2d9",
+            "on-primary-fixed-variant": "#554500",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#00531d",
+            "surface-bright": "#fff9f0",
+            "tertiary-fixed": "#ffdad8",
+            "secondary-container": "#93f59c",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#ede7df",
+            "secondary-fixed-dim": "#7bdb85",
+            "inverse-primary": "#e8c426",
+            "surface-container": "#f3ede4",
+            "on-primary": "#ffffff",
+            "tertiary": "#ae2f34",
+            "primary": "#705d00",
+            "on-secondary": "#ffffff",
+            "background": "#fff9f0",
+            "on-secondary-container": "#00732b",
+            "on-error": "#ffffff",
+            "on-primary-container": "#725e00",
+            "surface-container-low": "#f9f3ea"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar (Admin Dashboard Header) -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-stone-900/70 backdrop-blur-xl shadow-sm shadow-amber-900/5 flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="bg-primary-container p-2 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">dashboard</span>
+</div>
+<div>
+<h1 class="font-bold text-lg tracking-tight font-headline text-amber-700">Admin Dashboard</h1>
+<p class="text-xs text-stone-500 font-medium">Delivering to MG Road, Bangalore</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container px-4 py-2 rounded-full hidden md:flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+<span class="text-sm font-bold text-on-surface">Today's Sales: ₹4,500</span>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-stone-600">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="pt-24 px-4 max-w-7xl mx-auto space-y-8">
+<!-- Stats Banner (Mobile) -->
+<div class="md:hidden bg-gradient-to-br from-amber-400 to-orange-500 p-6 rounded-xl text-white shadow-xl shadow-amber-900/10">
+<p class="text-amber-100 font-medium text-sm">Today's Performance</p>
+<h2 class="text-3xl font-black font-headline tracking-tighter">₹4,500</h2>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="text-xs font-bold">+12% from yesterday</span>
+</div>
+</div>
+<!-- Active Orders Section -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold font-headline text-on-surface">Active Orders</h2>
+<div class="flex gap-2">
+<span class="bg-amber-100 text-amber-800 text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider">12 Orders</span>
+</div>
+</div>
+<!-- Bento Grid for Orders -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Order Card 1 -->
+<article class="bg-white rounded-lg p-6 shadow-[0_20px_40px_rgba(112,93,0,0.05)] border border-outline-variant/5 flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-amber-50 rounded-bl-[4rem] -mr-6 -mt-6 transition-transform group-hover:scale-110 duration-500"></div>
+<div class="flex justify-between items-start relative">
+<div>
+<span class="text-[10px] font-black tracking-widest text-stone-400 uppercase">Order ID</span>
+<h3 class="font-bold text-lg">#LG-9823</h3>
+</div>
+<div class="bg-surface-container-low p-2 rounded-xl text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+</div>
+<div>
+<span class="text-[10px] font-black tracking-widest text-stone-400 uppercase">Customer</span>
+<p class="font-semibold text-on-surface">Aditi Sharma</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-stone-500">2x Mango Lassi</span>
+<span class="font-medium text-on-surface">₹320</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-stone-500">1x Peri Peri Fries</span>
+<span class="font-medium text-on-surface">₹180</span>
+</div>
+<div class="pt-2 border-t border-outline-variant/10 flex justify-between">
+<span class="font-bold text-on-surface">Total</span>
+<span class="font-bold text-primary">₹500</span>
+</div>
+</div>
+<!-- Status Controls -->
+<div class="mt-2 space-y-3">
+<p class="text-[10px] font-black tracking-widest text-stone-400 uppercase">Change Status</p>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-primary text-on-primary py-3 rounded-full text-xs font-bold transition-transform active:scale-95 shadow-lg shadow-amber-900/10">Preparing</button>
+<button class="bg-surface-container text-stone-500 py-3 rounded-full text-xs font-bold hover:bg-stone-100 transition-colors">Out</button>
+<button class="bg-surface-container text-stone-500 py-3 rounded-full text-xs font-bold hover:bg-stone-100 transition-colors">Delivered</button>
+<button class="bg-error-container text-on-error-container py-3 rounded-full text-xs font-bold hover:opacity-80 transition-opacity">Cancel</button>
+</div>
+</div>
+</article>
+<!-- Order Card 2 -->
+<article class="bg-white rounded-lg p-6 shadow-[0_20px_40px_rgba(112,93,0,0.05)] border border-outline-variant/5 flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-[4rem] -mr-6 -mt-6 transition-transform group-hover:scale-110 duration-500"></div>
+<div class="flex justify-between items-start relative">
+<div>
+<span class="text-[10px] font-black tracking-widest text-stone-400 uppercase">Order ID</span>
+<h3 class="font-bold text-lg">#LG-9824</h3>
+</div>
+<div class="bg-secondary-container p-2 rounded-xl text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delivery_dining</span>
+</div>
+</div>
+<div>
+<span class="text-[10px] font-black tracking-widest text-stone-400 uppercase">Customer</span>
+<p class="font-semibold text-on-surface">Rahul Varma</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-stone-500">1x Watermelon Coolant</span>
+<span class="font-medium text-on-surface">₹150</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-stone-500">2x Club Sandwich</span>
+<span class="font-medium text-on-surface">₹440</span>
+</div>
+<div class="pt-2 border-t border-outline-variant/10 flex justify-between">
+<span class="font-bold text-on-surface">Total</span>
+<span class="font-bold text-primary">₹590</span>
+</div>
+</div>
+<div class="mt-2 space-y-3">
+<p class="text-[10px] font-black tracking-widest text-stone-400 uppercase">Current: <span class="text-secondary font-black">Out for Delivery</span></p>
+<div class="grid grid-cols-2 gap-2">
+<button class="bg-surface-container text-stone-500 py-3 rounded-full text-xs font-bold hover:bg-stone-100 transition-colors">Pending</button>
+<button class="bg-secondary text-on-secondary py-3 rounded-full text-xs font-bold transition-transform active:scale-95 shadow-lg shadow-emerald-900/10">Delivered</button>
+</div>
+</div>
+</article>
+<!-- Order Card 3 (Simplified for Grid variety) -->
+<article class="bg-surface-container-low rounded-lg p-6 flex flex-col justify-center items-center gap-4 text-center border-2 border-dashed border-outline-variant/30">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-stone-300 text-3xl">add</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface-variant">Manual Order</h3>
+<p class="text-xs text-on-surface-variant/60">Create a walk-in order</p>
+</div>
+<button class="px-6 py-2 bg-white text-on-surface font-bold text-sm rounded-full shadow-sm">Add New</button>
+</article>
+</div>
+</section>
+<!-- Recent Activity -->
+<section class="bg-white/50 rounded-xl p-6 backdrop-blur-sm border border-outline-variant/5">
+<h2 class="text-xl font-bold font-headline mb-4">Live Updates</h2>
+<div class="space-y-4">
+<div class="flex gap-4 items-center p-3 bg-white rounded-2xl shadow-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-sm">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium">Order <b>#LG-9821</b> delivered successfully</p>
+<p class="text-[10px] text-stone-400 font-bold uppercase tracking-tight">2 minutes ago</p>
+</div>
+</div>
+<div class="flex gap-4 items-center p-3 bg-white rounded-2xl shadow-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-sm">notifications_active</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium">New Order <b>#LG-9825</b> from <b>Meera K.</b></p>
+<p class="text-[10px] text-stone-400 font-bold uppercase tracking-tight">Just now</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- NavigationDrawer (Menu Categories) -->
+<nav class="hidden fixed left-0 top-0 h-full w-20 md:flex flex-col items-center py-8 gap-8 bg-white/80 dark:bg-stone-900/80 backdrop-blur-lg shadow-2xl shadow-stone-900/20 z-50">
+<div class="text-amber-600 font-black text-2xl tracking-tighter mb-4">LG</div>
+<a class="p-3 bg-emerald-100 text-emerald-800 rounded-2xl transition-all scale-[0.98]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+</a>
+<a class="p-3 text-stone-400 hover:bg-stone-100 rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined">inventory</span>
+</a>
+<a class="p-3 text-stone-400 hover:bg-stone-100 rounded-2xl transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+</a>
+<a class="p-3 text-stone-400 hover:bg-stone-100 rounded-2xl transition-all mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</nav>
+<!-- BottomNavBar (Mobile) -->
+<footer class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full mb-safe bg-white/70 backdrop-blur-2xl shadow-[0_20px_40px_rgba(112,93,0,0.12)] flex justify-around items-center h-20 px-4 z-50">
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-full p-3 scale-110 -translate-y-2 transition-transform duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-medium text-[10px] font-inter">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 p-2 hover:text-amber-500" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-medium text-[10px] font-inter">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 p-2 hover:text-amber-500" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-medium text-[10px] font-inter">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 p-2 hover:text-amber-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-medium text-[10px] font-inter">Account</span>
+</a>
+</footer>
+<!-- Status Updated Toast (Simulated) -->
+<div class="fixed top-8 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-3 bg-on-surface text-surface py-4 px-6 rounded-full shadow-2xl shadow-amber-900/40 pointer-events-none opacity-0 translate-y-[-100%] transition-all duration-300" id="toast">
+<span class="material-symbols-outlined text-secondary-container">verified</span>
+<p class="font-bold text-sm tracking-tight">Status Updated &amp; Notified</p>
+</div>
+<!-- Secure Login Overlay (Passcode Entry) -->
+<div class="fixed inset-0 z-[100] bg-surface flex items-center justify-center p-6" id="login-overlay">
+<div class="max-w-md w-full space-y-12 text-center">
+<div class="space-y-4">
+<div class="inline-block p-4 bg-amber-50 rounded-3xl mb-4">
+<span class="material-symbols-outlined text-amber-600 text-5xl">lock_open</span>
+</div>
+<h2 class="text-4xl font-black font-headline tracking-tighter text-on-surface">Secure Login</h2>
+<p class="text-stone-500 font-medium px-8">Liquid Gastronomy Admin Terminal. Please enter your terminal passcode.</p>
+</div>
+<div class="flex justify-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center text-2xl font-black text-amber-700 border-2 border-primary/20">•</div>
+<div class="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center text-2xl font-black text-amber-700 border-2 border-primary/20">•</div>
+<div class="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center text-2xl font-black text-amber-700 border-2 border-primary/20">•</div>
+<div class="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center text-2xl font-black text-amber-700 border-2 border-primary/20">•</div>
+</div>
+<div class="grid grid-cols-3 gap-4 max-w-[280px] mx-auto">
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">1</button>
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">2</button>
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">3</button>
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">4</button>
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">5</button>
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">6</button>
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">7</button>
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">8</button>
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">9</button>
+<div class="h-16"></div>
+<button class="h-16 rounded-2xl bg-surface-container-low text-xl font-bold hover:bg-surface-container transition-colors active:scale-95" onclick="this.closest('#login-overlay').style.display='none'">0</button>
+<button class="h-16 rounded-2xl bg-surface-container-low flex items-center justify-center hover:bg-surface-container transition-colors active:scale-95">
+<span class="material-symbols-outlined">backspace</span>
+</button>
+</div>
+<p class="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Forgot Passcode? Contact Manager</p>
+</div>
+</div>
+<script>
+    // Simple UI helper for toast
+    document.querySelectorAll('article button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const toast = document.getElementById('toast');
+        toast.style.opacity = '1';
+        toast.style.transform = 'translate(-50%, 0)';
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translate(-50%, -100%)';
+        }, 3000);
+      });
+    });
+  </script>
+</body></html>

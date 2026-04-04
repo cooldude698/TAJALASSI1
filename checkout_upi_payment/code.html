@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Complete Your Order - Liquid Gastronomy</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ba1a1a",
+              "surface": "#fff9f0",
+              "on-primary-fixed": "#221b00",
+              "tertiary-fixed-dim": "#ffb3b0",
+              "surface-container-highest": "#e7e2d9",
+              "inverse-surface": "#32302a",
+              "secondary-fixed": "#96f89f",
+              "on-background": "#1d1b16",
+              "on-tertiary-fixed-variant": "#8c1520",
+              "tertiary-container": "#ffd1ce",
+              "on-surface": "#1d1b16",
+              "on-tertiary-container": "#b03136",
+              "on-tertiary-fixed": "#410006",
+              "on-secondary-fixed": "#002107",
+              "on-error-container": "#93000a",
+              "secondary": "#006e29",
+              "surface-dim": "#dfd9d1",
+              "inverse-on-surface": "#f6f0e7",
+              "primary-fixed-dim": "#e8c426",
+              "outline": "#7e7761",
+              "outline-variant": "#d0c6ad",
+              "surface-tint": "#705d00",
+              "primary-fixed": "#ffe173",
+              "primary-container": "#ffd93d",
+              "on-surface-variant": "#4d4633",
+              "surface-variant": "#e7e2d9",
+              "on-primary-fixed-variant": "#554500",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#00531d",
+              "surface-bright": "#fff9f0",
+              "tertiary-fixed": "#ffdad8",
+              "secondary-container": "#93f59c",
+              "on-tertiary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#ede7df",
+              "secondary-fixed-dim": "#7bdb85",
+              "inverse-primary": "#e8c426",
+              "surface-container": "#f3ede4",
+              "on-primary": "#ffffff",
+              "tertiary": "#ae2f34",
+              "primary": "#705d00",
+              "on-secondary": "#ffffff",
+              "background": "#fff9f0",
+              "on-secondary-container": "#00732b",
+              "on-error": "#ffffff",
+              "on-primary-container": "#725e00",
+              "surface-container-low": "#f9f3ea"
+            },
+            fontFamily: {
+              "headline": ["Poppins"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "plus-jakarta": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .mango-melt {
+        background: linear-gradient(135deg, #705d00 0%, #ffd93d 100%);
+      }
+      .liquid-shadow {
+        box-shadow: 0 20px 40px rgba(112, 93, 0, 0.08);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container">
+<!-- Top Navigation Anchor (Manual Filter: Suppressed as per Task Intent for Transactional Page) -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-stone-900/70 backdrop-blur-xl shadow-sm shadow-amber-900/5 flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-600">arrow_back</span>
+<h1 class="text-amber-700 font-bold text-lg tracking-tight font-plus-jakarta">Complete Your Order</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-amber-600">shopping_cart</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-8">
+<!-- Delivery Info Section -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="font-headline text-2xl text-on-surface tracking-tight">Delivery Info</h2>
+<span class="text-secondary font-semibold text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-lg">verified</span> Verified Zone
+                </span>
+</div>
+<div class="grid gap-4">
+<div class="space-y-1">
+<label class="text-xs font-bold text-on-surface-variant ml-4">Full Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:bg-surface-bright transition-all placeholder:text-outline" placeholder="Enter your name" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-bold text-on-surface-variant ml-4">Phone Number</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:bg-surface-bright transition-all placeholder:text-outline" placeholder="+91 00000 00000" type="tel"/>
+</div>
+<button class="w-full py-4 rounded-lg bg-secondary-container text-on-secondary-container font-bold flex items-center justify-center gap-2 hover:bg-secondary/10 transition-colors">
+<span class="material-symbols-outlined" data-icon="location_searching">location_searching</span>
+                    Check Eligibility
+                </button>
+</div>
+</section>
+<!-- Order Summary Bento -->
+<section class="bg-surface-container-low rounded-xl p-8 space-y-6 liquid-shadow">
+<div class="flex items-center justify-between border-b border-outline-variant/10 pb-4">
+<h2 class="font-headline text-xl text-on-surface">Order Summary</h2>
+<div class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                    FREE Delivery
+                </div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="h-16 w-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="h-full w-full object-cover" data-alt="Close-up of a fresh green smoothie bowl with tropical fruits and seeds arranged artistically" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBClalfaAoA1kJqnlbumVH5kPQF3tUz8OnjbOWK9dEWGalSYl_Nbj9ZP87LYB4O9_rLhLvIsOMcV3IR6uoVgb-3G1CqUoUMtbtD-mF2R7QgDpHNJhXX1gXHm6eJeXeS5AEsgsElhq707pstxtc0a_4QNrMvhEXniuGdVfKu_Z5X77AMJOAaCsuGWq2neJh7cfOAiFhlM5NOXn6ZLqEQK54_MJgz3d18SiIRnLZVUNQfp33BBPOxwHg8KbNMcCXk2uKgd-9jfmIfBSlG"/>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-on-surface">Tropical Mint Lassi</p>
+<p class="text-xs text-on-surface-variant">500ml • Fresh Blend</p>
+</div>
+<p class="font-bold text-primary">₹180</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-16 w-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="h-full w-full object-cover" data-alt="Artisanal avocado toast on rustic sourdough bread with vibrant microgreens and radish slices" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCijMcA1N6DKCuMJdLPumnXoBg8qWvlN8W_ASO-HrnJj-D4zvokKMwoS8p35aDQxmOplKnCw3PAy2z9-nCE0xwszAi5cA7HeK4-c-SJzDmIdAeqsKJAsInx1D0fo2-RnE6Z870FYpHapiQMa_LS96f2Dq7_q_aUZjnmcGmOeq8a-gi39cGjcDJq4wMis3jBqiYblfIa0_c0GRygTffbjeWiOOz5NdHUBC7-xtV2hvKDLMFgTa4rXL8tkAeWOtrd-tZDD7wtN9-G_PZz"/>
+</div>
+<div class="flex-grow">
+<p class="font-bold text-on-surface">Garden Fresh Sandwich</p>
+<p class="text-xs text-on-surface-variant">Multigrain • Vegan</p>
+</div>
+<p class="font-bold text-primary">₹240</p>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/10">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-medium">Subtotal</span>
+<span class="font-bold text-on-surface">₹420</span>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="text-on-surface-variant font-medium">Delivery</span>
+<span class="font-bold text-secondary text-sm">₹0.00</span>
+</div>
+<div class="flex justify-between items-center mt-4 pt-4 border-t border-primary/10">
+<span class="font-headline text-lg">Total Amount</span>
+<span class="font-headline text-2xl text-primary tracking-tight">₹420</span>
+</div>
+</div>
+</section>
+<!-- Payment Section: Glassmorphic QR -->
+<section class="space-y-6">
+<h2 class="font-headline text-2xl text-on-surface tracking-tight">Payment</h2>
+<div class="relative overflow-hidden bg-white/40 backdrop-blur-2xl rounded-xl p-8 liquid-shadow flex flex-col items-center text-center space-y-4">
+<div class="absolute top-0 left-0 w-full h-1 mango-melt"></div>
+<div class="p-4 bg-white rounded-lg shadow-inner">
+<img class="w-48 h-48 opacity-90" data-alt="A clean geometric QR code for digital payment on a white background with rounded corners" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwxftDKnxvWJlF-aU88bDVdLPdpHoXK17xye6wSJjeMKn1ZjdwoWufh7U3pzOD9sNTG1UjMQaG0tgy-N3hYcafJnDbdXNKIaxmxI-qJMd5WZqlO0C547rS0aEJ6fVdVEoQw9-vjqhhAUncjXfCywTMEZ1ZavZziHTUDAoEUrJdTx1PjGHZZr8oCen34KNPASJ3KRY6uIwpIYyPdG1xO4AkIxYcp0mq8DL6Mc5XWdmWB73khmO23X4MdfrLxeQV1BKkDRt_-o3VFzYI"/>
+</div>
+<div class="space-y-1">
+<p class="font-bold text-on-surface">Scan to Pay via any UPI App</p>
+<p class="text-xs text-on-surface-variant max-w-[200px]">GPay, PhonePe, Paytm or any other banking app</p>
+</div>
+<div class="flex gap-4 opacity-40 grayscale pt-2">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+</div>
+</section>
+<!-- Primary Action Buttons -->
+<section class="space-y-4">
+<button class="w-full py-5 rounded-lg mango-melt text-white font-headline text-lg liquid-shadow hover:scale-[0.98] transition-transform flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                I Have Paid
+            </button>
+<button class="w-full py-5 rounded-lg bg-white/80 border border-secondary/10 backdrop-blur-md text-secondary font-bold flex items-center justify-center gap-2 hover:bg-secondary/5 transition-colors">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                Order via WhatsApp
+            </button>
+</section>
+</main>
+<!-- Navigation suppressed per logic (transactional page) -->
+<!-- Footer -->
+<footer class="pb-12 pt-4 px-6 text-center space-y-4">
+<div class="flex justify-center gap-6">
+<a class="text-xs font-bold text-outline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs font-bold text-outline hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-[0.2em]">© 2024 Liquid Gastronomy • Fluid Market</p>
+</footer>
+</body></html>

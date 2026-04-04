@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Liquid Gastronomy | Lassi Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Poppins:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ba1a1a",
+              "surface": "#fff9f0",
+              "on-primary-fixed": "#221b00",
+              "tertiary-fixed-dim": "#ffb3b0",
+              "surface-container-highest": "#e7e2d9",
+              "inverse-surface": "#32302a",
+              "secondary-fixed": "#96f89f",
+              "on-background": "#1d1b16",
+              "on-tertiary-fixed-variant": "#8c1520",
+              "tertiary-container": "#ffd1ce",
+              "on-surface": "#1d1b16",
+              "on-tertiary-container": "#b03136",
+              "on-tertiary-fixed": "#410006",
+              "on-secondary-fixed": "#002107",
+              "on-error-container": "#93000a",
+              "secondary": "#006e29",
+              "surface-dim": "#dfd9d1",
+              "inverse-on-surface": "#f6f0e7",
+              "primary-fixed-dim": "#e8c426",
+              "outline": "#7e7761",
+              "outline-variant": "#d0c6ad",
+              "surface-tint": "#705d00",
+              "primary-fixed": "#ffe173",
+              "primary-container": "#ffd93d",
+              "on-surface-variant": "#4d4633",
+              "surface-variant": "#e7e2d9",
+              "on-primary-fixed-variant": "#554500",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#00531d",
+              "surface-bright": "#fff9f0",
+              "tertiary-fixed": "#ffdad8",
+              "secondary-container": "#93f59c",
+              "on-tertiary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#ede7df",
+              "secondary-fixed-dim": "#7bdb85",
+              "inverse-primary": "#e8c426",
+              "surface-container": "#f3ede4",
+              "on-primary": "#ffffff",
+              "tertiary": "#ae2f34",
+              "primary": "#705d00",
+              "on-secondary": "#ffffff",
+              "background": "#fff9f0",
+              "on-secondary-container": "#00732b",
+              "on-error": "#ffffff",
+              "on-primary-container": "#725e00",
+              "surface-container-low": "#f9f3ea"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "poppins": ["Poppins"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-gradient-text {
+            background: linear-gradient(135deg, #705d00 0%, #ffd93d 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .mango-melt {
+            background: linear-gradient(135deg, #705d00 0%, #ffd93d 100%);
+        }
+        .bouncy-interaction:active {
+            transform: scale(0.96);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface overflow-x-hidden selection:bg-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-stone-900/70 backdrop-blur-xl shadow-sm shadow-amber-900/5 flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-600 dark:text-amber-400">location_on</span>
+<span class="font-bold text-lg tracking-tight font-headline text-amber-700 dark:text-amber-500">Delivering to MG Road, Bangalore</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hover:bg-amber-50 dark:hover:bg-stone-800 transition-colors p-2 rounded-full cursor-pointer bouncy-interaction">
+<span class="material-symbols-outlined text-amber-600 dark:text-amber-400">shopping_cart</span>
+</div>
+</div>
+</header>
+<main class="relative min-h-screen w-full flex flex-col pt-20">
+<!-- Hero Section Canvas -->
+<section class="relative flex-grow flex flex-col items-center justify-center px-6 py-12 overflow-hidden">
+<!-- Background Decorative Blobs -->
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 -right-48 w-[32rem] h-[32rem] bg-secondary-container/20 rounded-full blur-3xl"></div>
+<!-- Central Composition -->
+<div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
+<!-- Text Content -->
+<div class="flex flex-col items-center lg:items-start text-center lg:text-left lg:w-1/2 space-y-8">
+<h1 class="text-6xl lg:text-8xl font-poppins font-bold leading-[1.1] liquid-gradient-text tracking-tight">
+                        Lassi That Feels Like Home.
+                    </h1>
+<p class="text-on-surface-variant text-lg lg:text-xl max-w-md font-medium leading-relaxed">
+                        Thick, creamy, and chilled to perfection. Crafted with organic curd and sun-ripened Alphonso mangoes.
+                    </p>
+<button class="mango-melt px-10 py-5 rounded-xl text-on-primary font-bold text-xl shadow-[0_20px_40px_rgba(112,93,0,0.3)] bouncy-interaction hover:brightness-110 transition-all flex items-center gap-3 group">
+                        Order Now
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- 3D & Liquid Visualization Area -->
+<div id="threejs-container" class="relative lg:w-1/2 h-[500px] lg:h-[700px] w-full flex items-center justify-center rounded-[40px] overflow-hidden bg-white/20 backdrop-blur-xl border border-white/40 shadow-2xl">
+<!-- The Canvas will be mounted here by Three.js -->
+</div>
+</div>
+</section>
+<!-- Offers Carousel (Simulated Auto-sliding) -->
+<section class="w-full px-6 py-10 bg-surface-container-low mb-28">
+<div class="max-w-6xl mx-auto overflow-hidden">
+<div class="flex gap-6 animate-none hover:cursor-grab active:cursor-grabbing">
+<!-- Offer Card 1 -->
+<div class="min-w-[280px] lg:min-w-[340px] p-6 bg-white rounded-lg shadow-sm flex items-center gap-4 group">
+<div class="w-16 h-16 bg-primary-container rounded-2xl flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl">celebration</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Buy 2 Get 1 Free</h3>
+<p class="text-on-surface-variant text-sm">Valid on all Mango Lassi orders today!</p>
+</div>
+</div>
+<!-- Offer Card 2 -->
+<div class="min-w-[280px] lg:min-w-[340px] p-6 bg-secondary-container/30 rounded-lg shadow-sm flex items-center gap-4">
+<div class="w-16 h-16 bg-secondary-container rounded-2xl flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-3xl">local_shipping</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Free Delivery</h3>
+<p class="text-on-surface-variant text-sm">On orders above ₹199</p>
+</div>
+</div>
+<!-- Offer Card 3 -->
+<div class="min-w-[280px] lg:min-w-[340px] p-6 bg-tertiary-container/30 rounded-lg shadow-sm flex items-center gap-4">
+<div class="w-16 h-16 bg-tertiary-container rounded-2xl flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-3xl">loyalty</span>
+</div>
+<div>
+<h3 class="font-bold text-lg">Flat 20% OFF</h3>
+<p class="text-on-surface-variant text-sm">Use code: FIRSTGLASS</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] md:w-[400px] h-20 px-4 bg-white/70 dark:bg-stone-900/70 backdrop-blur-2xl rounded-full shadow-[0_20px_40px_rgba(112,93,0,0.12)] flex justify-around items-center z-50">
+<!-- Home Active -->
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-full p-3 scale-110 -translate-y-2 bouncy-interaction" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-medium text-[10px] font-inter">Home</span>
+</a>
+<!-- Menu -->
+<a class="flex flex-col items-center justify-center text-stone-400 p-2 hover:text-amber-500 bouncy-interaction" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-medium text-[10px] font-inter">Menu</span>
+</a>
+<!-- Search -->
+<a class="flex flex-col items-center justify-center text-stone-400 p-2 hover:text-amber-500 bouncy-interaction" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-medium text-[10px] font-inter">Search</span>
+</a>
+<!-- Account -->
+<a class="flex flex-col items-center justify-center text-stone-400 p-2 hover:text-amber-500 bouncy-interaction" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-medium text-[10px] font-inter">Account</span>
+</a>
+</nav>
+<!-- NavigationDrawer (Mobile/Secondary) -->
+<aside class="fixed top-0 left-0 h-full w-80 bg-white/80 dark:bg-stone-900/80 backdrop-blur-lg rounded-r-[3rem] shadow-2xl shadow-stone-900/20 transform -translate-x-full transition-transform duration-300 z-[60] lg:hidden">
+<div class="flex flex-col p-8 h-full">
+<div class="flex items-center gap-2 mb-12">
+<span class="text-amber-600 font-black text-2xl font-headline">LIQUID</span>
+</div>
+<h2 class="font-bold text-xl font-plus-jakarta text-stone-900 mb-6">Menu Categories</h2>
+<div class="flex flex-col gap-4">
+<a class="bg-emerald-100 text-emerald-800 font-bold rounded-2xl flex items-center gap-4 px-6 py-4 transition-all" href="#">
+<span class="material-symbols-outlined">local_drink</span>
+<span>Lassi</span>
+</a>
+<a class="text-stone-600 hover:bg-stone-100 rounded-2xl flex items-center gap-4 px-6 py-4 transition-all" href="#">
+<span class="material-symbols-outlined">liquor</span>
+<span>Juices</span>
+</a>
+<a class="text-stone-600 hover:bg-stone-100 rounded-2xl flex items-center gap-4 px-6 py-4 transition-all" href="#">
+<span class="material-symbols-outlined">lunch_dining</span>
+<span>Sandwiches</span>
+</a>
+<a class="text-stone-600 hover:bg-stone-100 rounded-2xl flex items-center gap-4 px-6 py-4 transition-all" href="#">
+<span class="material-symbols-outlined">fastfood</span>
+<span>Fries</span>
+</a>
+</div>
+</div>
+</aside>
+
+<script>
+    // Three.js Interactive Hero Scene
+    const container = document.getElementById('threejs-container');
+    
+    if (container) {
+        const scene = new THREE.Scene();
+        
+        // Transparent background
+        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        // Add Lights for Premium Look
+        const ambientLight = new THREE.AmbientLight(0xfff9f0, 0.8);
+        scene.add(ambientLight);
+
+        const mainLight = new THREE.DirectionalLight(0xfff9f0, 1.2);
+        mainLight.position.set(5, 10, 7);
+        scene.add(mainLight);
+        
+        const fillLight = new THREE.DirectionalLight(0xffd1ce, 0.6);
+        fillLight.position.set(-5, 0, -5);
+        scene.add(fillLight);
+
+        // Objects Group
+        const group = new THREE.Group();
+        scene.add(group);
+
+        // 1. The Main "Lassi" Object - Golden/Amber smooth shape (Capsule geometry)
+        const lassiGeo = new THREE.CapsuleGeometry(1.2, 2, 8, 64);
+        const lassiMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffd93d, 
+            emissive: 0x705d00,
+            emissiveIntensity: 0.15,
+            roughness: 0.2,
+            metalness: 0.1,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.1,
+            transparent: true,
+            opacity: 0.98
+        });
+        const lassiMesh = new THREE.Mesh(lassiGeo, lassiMat);
+        group.add(lassiMesh);
+
+        // 2. Floating Mango Slice (Orange/Yellow object)
+        const mangoGeo = new THREE.TorusGeometry(0.5, 0.2, 16, 32, Math.PI * 1.5);
+        const mangoMat = new THREE.MeshPhysicalMaterial({ color: 0xffa000, roughness: 0.3, clearcoat: 0.8 });
+        const mangoMesh = new THREE.Mesh(mangoGeo, mangoMat);
+        mangoMesh.position.set(1.8, 1.5, 1.2);
+        mangoMesh.rotation.set(0.5, 0.5, 0);
+        group.add(mangoMesh);
+
+        // 3. Floating Strawberry Half (Red Object)
+        const strawGeo = new THREE.ConeGeometry(0.4, 0.8, 16);
+        const strawMat = new THREE.MeshPhysicalMaterial({ color: 0xe53935, roughness: 0.5 });
+        const strawMesh = new THREE.Mesh(strawGeo, strawMat);
+        strawMesh.position.set(-1.8, -1.2, 1.5);
+        group.add(strawMesh);
+
+        // 4. Floating Mint Leaf (Green Object)
+        const leafGeo = new THREE.LatheGeometry([new THREE.Vector2(0, 0), new THREE.Vector2(0.4, 0.2), new THREE.Vector2(0, 0.6)], 4);
+        const leafMat = new THREE.MeshPhysicalMaterial({ color: 0x43a047, roughness: 0.6, side: THREE.DoubleSide });
+        const leafMesh = new THREE.Mesh(leafGeo, leafMat);
+        leafMesh.position.set(2.0, -1.0, 0.5);
+        group.add(leafMesh);
+
+        // Random Bubbles (Liquid feel)
+        for(let i = 0; i < 15; i++) {
+            const bubbleGeo = new THREE.SphereGeometry(Math.random() * 0.15 + 0.05, 16, 16);
+            const bubbleMat = new THREE.MeshPhysicalMaterial({ 
+                color: 0xffffff, transmission: 0.9, opacity: 1, transparent: true, roughness: 0 
+            });
+            const bubble = new THREE.Mesh(bubbleGeo, bubbleMat);
+            bubble.position.set(
+                (Math.random() - 0.5) * 4,
+                (Math.random() - 0.5) * 5,
+                (Math.random() - 0.5) * 3 + 1
+            );
+            group.add(bubble);
+        }
+
+        camera.position.z = 7;
+
+        // Animation Loop
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.01;
+            
+            // Gentle rotation of the whole group
+            group.rotation.y = Math.sin(time * 0.5) * 0.15;
+            group.rotation.x = Math.cos(time * 0.3) * 0.1;
+            
+            // Internal floating
+            lassiMesh.rotation.y += 0.005;
+            lassiMesh.rotation.x = Math.sin(time) * 0.05;
+            lassiMesh.position.y = Math.sin(time * 1.5) * 0.15;
+            
+            mangoMesh.rotation.x += 0.01;
+            mangoMesh.rotation.y += 0.01;
+            mangoMesh.position.y = 1.5 + Math.sin(time * 1.5) * 0.2;
+
+            strawMesh.rotation.z += 0.01;
+            strawMesh.rotation.x += 0.02;
+            strawMesh.position.y = -1.2 + Math.sin(time * 1.2 + 2) * 0.3;
+
+            leafMesh.rotation.y += 0.015;
+            leafMesh.rotation.x += 0.005;
+            leafMesh.position.y = -1.0 + Math.sin(time * 2.5 + 4) * 0.2;
+            
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Handle Window Resize
+        window.addEventListener('resize', () => {
+            if (!container) return;
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        });
+
+        // Make it interactive to mouse move
+        window.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth) * 2 - 1;
+            const y = -(e.clientY / window.innerHeight) * 2 + 1;
+            camera.position.x += (x * 1.0 - camera.position.x) * 0.05;
+            camera.position.y += (y * 1.0 - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+        });
+    }
+</script>
+</body></html>

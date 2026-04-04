@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Liquid Gastronomy | The Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ba1a1a",
+              "surface": "#fff9f0",
+              "on-primary-fixed": "#221b00",
+              "tertiary-fixed-dim": "#ffb3b0",
+              "surface-container-highest": "#e7e2d9",
+              "inverse-surface": "#32302a",
+              "secondary-fixed": "#96f89f",
+              "on-background": "#1d1b16",
+              "on-tertiary-fixed-variant": "#8c1520",
+              "tertiary-container": "#ffd1ce",
+              "on-surface": "#1d1b16",
+              "on-tertiary-container": "#b03136",
+              "on-tertiary-fixed": "#410006",
+              "on-secondary-fixed": "#002107",
+              "on-error-container": "#93000a",
+              "secondary": "#006e29",
+              "surface-dim": "#dfd9d1",
+              "inverse-on-surface": "#f6f0e7",
+              "primary-fixed-dim": "#e8c426",
+              "outline": "#7e7761",
+              "outline-variant": "#d0c6ad",
+              "surface-tint": "#705d00",
+              "primary-fixed": "#ffe173",
+              "primary-container": "#ffd93d",
+              "on-surface-variant": "#4d4633",
+              "surface-variant": "#e7e2d9",
+              "on-primary-fixed-variant": "#554500",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#00531d",
+              "surface-bright": "#fff9f0",
+              "tertiary-fixed": "#ffdad8",
+              "secondary-container": "#93f59c",
+              "on-tertiary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#ede7df",
+              "secondary-fixed-dim": "#7bdb85",
+              "inverse-primary": "#e8c426",
+              "surface-container": "#f3ede4",
+              "on-primary": "#ffffff",
+              "tertiary": "#ae2f34",
+              "primary": "#705d00",
+              "on-secondary": "#ffffff",
+              "background": "#fff9f0",
+              "on-secondary-container": "#00732b",
+              "on-error": "#ffffff",
+              "on-primary-container": "#725e00",
+              "surface-container-low": "#f9f3ea"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .liquid-gradient-mango {
+            background: linear-gradient(135deg, #705D00 0%, #FFD93D 100%);
+        }
+        .liquid-gradient-mint {
+            background: linear-gradient(135deg, #006E29 0%, #93F59C 100%);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-stone-900/70 backdrop-blur-xl shadow-sm shadow-amber-900/5 flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-600 dark:text-amber-400">location_on</span>
+<span class="font-bold text-lg tracking-tight font-headline text-amber-700 dark:text-amber-500">Delivering to MG Road, Bangalore</span>
+</div>
+<div class="p-2 hover:bg-amber-50 dark:hover:bg-stone-800 transition-colors rounded-full">
+<span class="material-symbols-outlined text-amber-600 dark:text-amber-400">shopping_cart</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto">
+<!-- Editorial Headline -->
+<section class="mb-8">
+<h1 class="font-headline font-extrabold text-5xl tracking-tighter text-on-background mb-2">
+                Pure <span class="text-primary italic">Zest.</span>
+</h1>
+<p class="text-on-surface-variant text-lg">Handcrafted refreshment delivered to your doorstep.</p>
+</section>
+<!-- Glassmorphism Search Bar -->
+<section class="mb-10">
+<div class="relative group">
+<div class="absolute inset-y-0 left-5 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</div>
+<input class="w-full h-16 pl-14 pr-6 bg-surface-container-low border-none rounded-xl text-lg focus:ring-2 focus:ring-primary/20 backdrop-blur-md transition-all placeholder:text-on-surface-variant/50" placeholder="Search for cravings..." type="text"/>
+</div>
+</section>
+<!-- Horizontal Category Scroller -->
+<section class="mb-12">
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-4 -mx-6 px-6">
+<!-- Active Category: Lassi -->
+<div class="flex-none flex items-center gap-3 bg-emerald-100 text-emerald-800 font-bold rounded-2xl p-4 min-w-[120px] shadow-sm">
+<span class="material-symbols-outlined">local_drink</span>
+<span class="text-sm font-headline">Lassi</span>
+</div>
+<!-- Inactive: Juices -->
+<div class="flex-none flex items-center gap-3 bg-surface-container text-stone-600 font-medium rounded-2xl p-4 min-w-[120px] hover:bg-stone-100 transition-all">
+<span class="material-symbols-outlined">liquor</span>
+<span class="text-sm font-headline">Juices</span>
+</div>
+<!-- Inactive: Sandwiches -->
+<div class="flex-none flex items-center gap-3 bg-surface-container text-stone-600 font-medium rounded-2xl p-4 min-w-[140px] hover:bg-stone-100 transition-all">
+<span class="material-symbols-outlined">lunch_dining</span>
+<span class="text-sm font-headline">Sandwiches</span>
+</div>
+<!-- Inactive: Fries -->
+<div class="flex-none flex items-center gap-3 bg-surface-container text-stone-600 font-medium rounded-2xl p-4 min-w-[120px] hover:bg-stone-100 transition-all">
+<span class="material-symbols-outlined">fastfood</span>
+<span class="text-sm font-headline">Fries</span>
+</div>
+</div>
+</section>
+<!-- Product Grid -->
+<section class="grid grid-cols-2 gap-x-6 gap-y-10">
+<!-- Product 1 -->
+<div class="flex flex-col">
+<div class="relative mb-4">
+<img class="w-full aspect-[4/5] object-cover rounded-[30px] shadow-sm" data-alt="thick creamy mango lassi in a traditional clay pot garnish with saffron strands and crushed pistachios" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMOZJLvk6vkn4Id9qp2pc2tGqBFDvmAjo8qjVWd6-uRnWotA3O_oPs6mPZGyBvHrFgA1DH3R2GhehFUwhLsvSFLlE5qR7gkHKKkp7gB46kyV9F8d4PWtP0TM4NyCmph27rGDBvHXEcJXgzOANlQ1ShEl583rk_T-qcoYt4cfBJpK6BV5HOLVlBPJJmFCeh4RGowyJKUx3GqSzX8_RFuO9mOh8QsDHYzUW897O_5Jb84Fkz4pJoOgSPqAe_rL_sTsVvkZDBVfOSnrUC"/>
+<button class="absolute -bottom-4 -right-2 w-14 h-14 liquid-gradient-mango text-white rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(112,93,0,0.3)] active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+<h3 class="font-headline font-bold text-xl text-on-surface px-1">Royal Mango Lassi</h3>
+<p class="text-secondary font-bold px-1">₹180</p>
+</div>
+<!-- Product 2 -->
+<div class="flex flex-col">
+<div class="relative mb-4">
+<img class="w-full aspect-[4/5] object-cover rounded-[30px] shadow-sm" data-alt="gourmet grilled sandwich with melting cheese fresh arugula and sun-dried tomatoes on artisan sourdough bread" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3KphOXGYWFzNT-4GwUQvyu-MN6Mpa0YnuBxp_2JKoj90opSGZ5LMsEGLNWswFzq13WknKCvbvqr3_mh1rj49la8Fb3cd7MQEVozK5M-BuMBv2vKFGmdW91Q3NynlOSRJl4dABYVIueLLeRTCrQGwCXTZgZMJA8elAQyaS7OBsujVkHxwfSt8lkutXwYe1q5oNtXqd5m-x22A6d6-C9DAmv-EoNbUZhoxTcA019S73dhtM8-dKKVjNrVjQduom-vVYY2UMcBkoGAui"/>
+<button class="absolute -bottom-4 -right-2 w-14 h-14 liquid-gradient-mango text-white rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(112,93,0,0.3)] active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+<h3 class="font-headline font-bold text-xl text-on-surface px-1">Pesto Melt</h3>
+<p class="text-secondary font-bold px-1">₹240</p>
+</div>
+<!-- Product 3 -->
+<div class="flex flex-col">
+<div class="relative mb-4">
+<img class="w-full aspect-[4/5] object-cover rounded-[30px] shadow-sm" data-alt="crispy golden french fries tossed in peri peri spice served in a vibrant paper cone with creamy dip" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZAWNDPIOO1VcwMzjRCSGE__pWGIV6-cLu_6dtQ9jvdcNAzBOWfh8MeAmC2-zCWUZq_nKirpF4cAmiJpinmtkFhJvNzMrkZ6LOVEQSEIfRNY4M9HoSUhsuzeHb79xg6PAauUnEK0RS2_cQefc0qwcz53laDu6dZSEr2p5UWsO8-NbIXY6NDS537qylKLEMWO-0359lJoEMS1bREGcBXc-Naxy8EaLwodx6l3E_CTQMMTAqWUHPgvCL-g7KZIxUaTr3tqP9MCcJsuPT"/>
+<button class="absolute -bottom-4 -right-2 w-14 h-14 liquid-gradient-mango text-white rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(112,93,0,0.3)] active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+<h3 class="font-headline font-bold text-xl text-on-surface px-1">Peri Peri Fires</h3>
+<p class="text-secondary font-bold px-1">₹120</p>
+</div>
+<!-- Product 4 -->
+<div class="flex flex-col">
+<div class="relative mb-4">
+<img class="w-full aspect-[4/5] object-cover rounded-[30px] shadow-sm" data-alt="freshly pressed green juice in a glass bottle with mint leaves and lime slices in a bright airy setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI0VQ2m0EJhQtMDnc1GffOyaqPpxqFeDInK18riiRN47j6t9E5tJJUz3JDJ0QpWv3g1Ohtc2-3Zu4CTFLHqHsEzefnln838nsNNf1xDQI4wtNHPAaUJuD4msDcMJAKUDwufNguomVa-ZPWd4DyrYNU1psjHdA64ZnrNx3HIRaka23K_dqv_B3Z8jriLsIGfP4XWXw5ARPT0vFueyrLj7svEy7tn1XTHiaFSuO2smYD1S2VQ34pcmHUnYvLSeq8y5Oc3XxXanrupouZ"/>
+<button class="absolute -bottom-4 -right-2 w-14 h-14 liquid-gradient-mango text-white rounded-full flex items-center justify-center shadow-[0_10px_20px_rgba(112,93,0,0.3)] active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+<h3 class="font-headline font-bold text-xl text-on-surface px-1">Mint Spritz</h3>
+<p class="text-secondary font-bold px-1">₹150</p>
+</div>
+</section>
+</main>
+<!-- Floating Checkout Bar (Prompt Specific) -->
+<div class="fixed bottom-28 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-[60]">
+<div class="bg-stone-900/90 backdrop-blur-2xl rounded-full px-6 py-4 flex items-center justify-between shadow-[0_20px_40px_rgba(0,0,0,0.2)]">
+<div class="flex flex-col">
+<span class="text-white/60 text-xs font-medium tracking-wider uppercase">Your Order</span>
+<span class="text-white font-bold">1 Item | ₹120</span>
+</div>
+<button class="bg-secondary-container text-on-secondary-container font-headline font-bold px-6 py-3 rounded-full flex items-center gap-2 active:scale-95 transition-transform">
+                Checkout
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Shell (Anchor Component) -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full mb-safe bg-white/70 dark:bg-stone-900/70 backdrop-blur-2xl shadow-[0_20px_40px_rgba(112,93,0,0.12)] flex justify-around items-center h-20 px-4 w-full z-50">
+<div class="flex flex-col items-center justify-center text-stone-400 p-2 hover:text-amber-500">
+<span class="material-symbols-outlined">home</span>
+<span class="font-medium text-[10px] font-inter">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-full p-3 scale-110 -translate-y-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+<span class="font-medium text-[10px] font-inter">Menu</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 p-2 hover:text-amber-500">
+<span class="material-symbols-outlined">search</span>
+<span class="font-medium text-[10px] font-inter">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 p-2 hover:text-amber-500">
+<span class="material-symbols-outlined">person</span>
+<span class="font-medium text-[10px] font-inter">Account</span>
+</div>
+</nav>
+</body></html>
