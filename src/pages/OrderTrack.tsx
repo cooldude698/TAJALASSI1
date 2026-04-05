@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function OrderTrack() {
   const [order, setOrder] = useState<any>(null);
   const [showReceipt, setShowReceipt] = useState(false);
+  const [mapZoom, setMapZoom] = useState(1);
 
   useEffect(() => {
     const loadOrder = () => {
@@ -112,51 +114,74 @@ export default function OrderTrack() {
       </section>
 
       {/* Simulated Interactive Map */}
-      <section className="relative rounded-xl overflow-hidden aspect-[4/3] shadow-2xl shadow-stone-900/10 group">
-        <div className="absolute inset-0 bg-stone-200">
-          <img className="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7nmHztS44eOILGAIqWjpP_pcdCuSF9TODItmG9uO2tIfzr9E0s-EEF9fFZOSj2OYrSFeLFhVrOmnpP0pSqdfMj70y7kmIxZaWcHFPoFhKY02IGg2c3_w9cEX32bUcGQjaFqWR-zPYMTaJY_Jadh8rEf27X53qr6781pQkegdFj-Cev7dgrRu5HbevV4S5ysHnJCEAxZeHQ3i14SwT3tHFrAi0YwKb-EYLOnAktBbN4Fi1xKZj79K_xJwSUNWGoKTT2mVZUHobSZd5" alt="Map view" />
-        </div>
-        
-        {/* Map Decorative Elements */}
-        <div className="absolute top-1/4 left-1/3 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
-        
-        {/* Delivery Path (SVG Path Simulation) */}
-        {!isDelivered && (
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
-            <path d="M 50 250 Q 150 200 200 150 T 350 50" fill="none" opacity="0.4" stroke="#705d00" strokeDasharray="8 8" strokeWidth="4"></path>
-          </svg>
-        )}
-
-        {/* Destination Pin */}
-        <div className="absolute top-[50px] right-[50px] flex flex-col items-center">
-          <div className="bg-white p-2 rounded-lg shadow-lg mb-2 text-[10px] font-bold">{order.customer}'s Location</div>
-          <div className="w-4 h-4 bg-primary border-4 border-white rounded-full shadow-lg ring-4 ring-primary/20"></div>
-        </div>
-
-        {/* Moving Rider */}
-        {!isDelivered && (
-          <div className={`absolute flex flex-col items-center transition-all duration-1000 ${isOut ? 'bottom-[120px] left-[180px]' : 'bottom-[230px] left-[60px]'}`}>
-            {isOut && (
-              <div className="bg-white px-3 py-1 rounded-full shadow-xl flex items-center gap-2 mb-2 animate-pulse">
-                <div className="w-6 h-6 rounded-full overflow-hidden">
-                  <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW-_XCTTwDM8_AwZoayUdEoejnebVuWzoCV0CHbdkYUXiGcK4WBSiLgUEYny_t-O6AbVzuGMf5GceewPu4fwtpCbnXt2ss0--lb9a3Lm8atmiPsbEgdH9k4dwNh4sgahfyYGjxkajvtw3YFg4h1WCMBvNDllE81BToU1FuL6dgVqx_RNHLSlA3HuFitJo-VLOv1csC7-ygRGgwTc30teEn61Ou1v6KGJRQJ0KUq3vi0c0jFaZWdZOBGZR3JJJX8DyR_YvyZweImuXI" alt="Rider" />
-                </div>
-                <span className="text-xs font-bold">Ravi is {isOut ? 'on the way' : 'waiting at shop'}</span>
-              </div>
-            )}
-            <div className={`w-12 h-12 bg-primary-container rounded-full flex items-center justify-center shadow-lg border-2 border-white ${isOut ? 'animate-bounce' : ''}`}>
-              <span className="material-symbols-outlined text-on-primary-container text-xl" style={{fontVariationSettings: "'FILL' 1"}}>pedal_bike</span>
-            </div>
+      <section className="relative rounded-xl overflow-hidden aspect-[4/3] shadow-2xl shadow-stone-900/10 group bg-stone-200">
+        <motion.div 
+           className="absolute inset-0 w-full h-full"
+           animate={{ scale: mapZoom }}
+           transition={{ type: "spring", stiffness: 300, damping: 30 }}
+           style={{ originX: 0.5, originY: 0.5 }}
+        >
+          <div className="absolute inset-0 bg-stone-200">
+            <img className="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7nmHztS44eOILGAIqWjpP_pcdCuSF9TODItmG9uO2tIfzr9E0s-EEF9fFZOSj2OYrSFeLFhVrOmnpP0pSqdfMj70y7kmIxZaWcHFPoFhKY02IGg2c3_w9cEX32bUcGQjaFqWR-zPYMTaJY_Jadh8rEf27X53qr6781pQkegdFj-Cev7dgrRu5HbevV4S5ysHnJCEAxZeHQ3i14SwT3tHFrAi0YwKb-EYLOnAktBbN4Fi1xKZj79K_xJwSUNWGoKTT2mVZUHobSZd5" alt="Map view" />
           </div>
-        )}
+          
+          {/* Map Decorative Elements */}
+          <div className="absolute top-1/4 left-1/3 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+          
+          {/* Delivery Path (SVG Path Simulation) */}
+          {!isDelivered && (
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 300">
+              <path d="M 50 250 Q 150 200 200 150 T 350 50" fill="none" opacity="0.4" stroke="#705d00" strokeDasharray="8 8" strokeWidth="4"></path>
+            </svg>
+          )}
+
+          {/* Destination Pin */}
+          <div className="absolute flex flex-col items-center" style={{ top: '16.66%', left: '87.5%', transform: 'translate(-50%, -50%)' }}>
+            <div className="bg-white p-2 rounded-lg shadow-lg mb-2 text-[10px] whitespace-nowrap font-bold">{order.customer}'s Location</div>
+            <div className="w-4 h-4 bg-primary border-4 border-white rounded-full shadow-lg ring-4 ring-primary/20"></div>
+          </div>
+
+          {/* Moving Rider */}
+          {!isDelivered && (
+            <motion.div 
+              initial={false}
+              animate={{ 
+                top: isOut ? '16.66%' : '83.33%', 
+                left: isOut ? '87.5%' : '12.5%',
+                x: '-50%',
+                y: '-50%'
+              }}
+              transition={{ duration: isOut ? 300 : 1, ease: 'linear' }}
+              className="absolute flex flex-col items-center z-10"
+            >
+              {isOut && (
+                <div className="bg-white px-3 py-1 rounded-full shadow-xl flex items-center gap-2 mb-2 animate-pulse whitespace-nowrap">
+                  <div className="w-6 h-6 rounded-full overflow-hidden">
+                    <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW-_XCTTwDM8_AwZoayUdEoejnebVuWzoCV0CHbdkYUXiGcK4WBSiLgUEYny_t-O6AbVzuGMf5GceewPu4fwtpCbnXt2ss0--lb9a3Lm8atmiPsbEgdH9k4dwNh4sgahfyYGjxkajvtw3YFg4h1WCMBvNDllE81BToU1FuL6dgVqx_RNHLSlA3HuFitJo-VLOv1csC7-ygRGgwTc30teEn61Ou1v6KGJRQJ0KUq3vi0c0jFaZWdZOBGZR3JJJX8DyR_YvyZweImuXI" alt="Rider" />
+                  </div>
+                  <span className="text-xs font-bold">Ravi is {isOut ? 'on the way' : 'waiting at shop'}</span>
+                </div>
+              )}
+              <div className={`w-12 h-12 bg-primary-container rounded-full flex items-center justify-center shadow-lg border-2 border-white ${isOut ? 'animate-bounce' : ''}`}>
+                <span className="material-symbols-outlined text-on-primary-container text-xl" style={{fontVariationSettings: "'FILL' 1"}}>pedal_bike</span>
+              </div>
+            </motion.div>
+          )}
+        </motion.div>
 
         {/* Map Controls */}
-        <div className="absolute bottom-6 right-6 flex flex-col gap-2">
-          <button className="w-10 h-10 bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center shadow-md text-on-surface hover:bg-white transition-colors">
+        <div className="absolute bottom-6 right-6 flex flex-col gap-2 z-20">
+          <button 
+             onClick={() => setMapZoom(z => Math.min(z + 0.3, 2.5))}
+             className="w-10 h-10 bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center shadow-md text-on-surface hover:bg-white transition-colors"
+          >
             <span className="material-symbols-outlined">add</span>
           </button>
-          <button className="w-10 h-10 bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center shadow-md text-on-surface hover:bg-white transition-colors">
+          <button 
+             onClick={() => setMapZoom(z => Math.max(z - 0.3, 0.5))}
+             className="w-10 h-10 bg-white/70 backdrop-blur-md rounded-full flex items-center justify-center shadow-md text-on-surface hover:bg-white transition-colors"
+          >
             <span className="material-symbols-outlined">remove</span>
           </button>
         </div>

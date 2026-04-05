@@ -65,6 +65,11 @@ function ScrollToTop() {
   return null;
 }
 
+function ProtectedAdminRoute() {
+  const isAuth = sessionStorage.getItem('is_admin_auth');
+  return isAuth ? <AdminPortal /> : <Navigate to="/" replace />;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -81,7 +86,7 @@ export default function App() {
 
             {/* Standalone Routes - No NavBar/AppBar */}
             <Route path="/login" element={<Login />} />
-            <Route path="/admin" element={<AdminPortal />} />
+            <Route path="/admin" element={<ProtectedAdminRoute />} />
             
             {/* Catch-all and Legacy Route Redirects */}
             <Route path="/admin.html" element={<Navigate to="/" replace />} />

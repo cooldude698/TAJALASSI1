@@ -6,6 +6,7 @@ export default function Checkout() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
+  const [paymentConfirmed, setPaymentConfirmed] = useState(false);
   const navigate = useNavigate();
   const { items, total, clearCart } = useCart();
  
@@ -17,6 +18,11 @@ export default function Checkout() {
   }, []);
 
   const handleWhatsAppOrder = () => {
+    if (!paymentConfirmed) {
+      alert("Please confirm your payment before proceeding.");
+      return;
+    }
+
     if (!name || !phone) {
       alert("Please enter both Name and Phone Number to complete the order.");
       return;
@@ -27,11 +33,14 @@ export default function Checkout() {
       return;
     }
 
-    const orderId = "#TG-" + Math.floor(1000 + Math.random() * 9000);
+    const totalOrdersCount = parseInt(localStorage.getItem('total_orders_count') || '0', 10) + 1;
+    localStorage.setItem('total_orders_count', totalOrdersCount.toString());
+    const orderId = "TJ" + totalOrdersCount.toString().padStart(2, '0');
+    
     const newOrder = {
       id: orderId,
       customer: name,
-      phone: phone, // Added phone for order history tracking
+      phone: phone,
       amount: total,
       items: items.map(item => ({ name: item.name, quantity: item.quantity, price: item.price * item.quantity })),
       status: "Pending",
@@ -45,16 +54,15 @@ export default function Checkout() {
     window.dispatchEvent(new Event('storage'));
 
     // Format WhatsApp Message
-    const whatsappNumber = "+919986751341"; // Updated with requested number
+    const whatsappNumber = "+919986751341";
     const itemsList = items.map(item => `- ${item.quantity}x ${item.name} (₹${item.price * item.quantity})`).join('%0A');
-    const message = `*New Order from Taja Lassi Website*%0A%0A*Order ID:* ${orderId}%0A*Customer:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A%0A*Items:*%0A${itemsList}%0A%0A*Total Amount:* ₹${total}%0A%0A_I have placed my order and am paying via QR code. Please confirm!_`;
+    const message = `*New Order from Taja Lassi Website*%0A%0A*Order ID:* ${orderId}%0A*Customer:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}%0A%0A*Items:*%0A${itemsList}%0A%0A*Total Amount:* ₹${total}%0A%0A✅ *Payment completed via UPI QR Code.*%0A_Please confirm and deliver my order!_`;
     
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
     
     // Clear cart and redirect
     clearCart();
     window.open(whatsappUrl, '_blank');
-    alert("Order recorded! We're redirecting you to WhatsApp to confirm.");
     navigate('/track');
   };
 
@@ -175,16 +183,67 @@ export default function Checkout() {
             <span className="material-symbols-outlined">payments</span>
           </div>
         </div>
+
+        {/* Payment Confirmation Checkbox */}
+        <label 
+          htmlFor="payment-confirm"
+          className={`flex items-center gap-4 p-5 rounded-xl cursor-pointer transition-all duration-300 border-2 select-none ${
+            paymentConfirmed 
+              ? 'bg-emerald-50 border-emerald-400 shadow-lg shadow-emerald-100' 
+              : 'bg-surface-container-low border-outline-variant/20 hover:border-outline-variant/40'
+          }`}
+        >
+          <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
+            paymentConfirmed 
+              ? 'bg-emerald-500 shadow-md shadow-emerald-200' 
+              : 'bg-white border-2 border-stone-300'
+          }`}>
+            {paymentConfirmed && (
+              <span className="material-symbols-outlined text-white text-lg" style={{fontVariationSettings: "'FILL' 1"}}>check</span>
+            )}
+          </div>
+          <input 
+            id="payment-confirm"
+            type="checkbox" 
+            checked={paymentConfirmed} 
+            onChange={(e) => setPaymentConfirmed(e.target.checked)} 
+            className="hidden"
+          />
+          <div>
+            <p className={`font-bold text-sm transition-colors ${paymentConfirmed ? 'text-emerald-800' : 'text-on-surface'}`}>
+              I have completed the payment via UPI
+            </p>
+            <p className={`text-xs mt-0.5 transition-colors ${paymentConfirmed ? 'text-emerald-600' : 'text-on-surface-variant'}`}>
+              Confirm that you've scanned the QR and paid ₹{total}
+            </p>
+          </div>
+          {paymentConfirmed && (
+            <span className="material-symbols-outlined text-emerald-500 ml-auto text-2xl" style={{fontVariationSettings: "'FILL' 1"}}>verified</span>
+          )}
+        </label>
       </section>
 
       {/* Primary Action Button */}
-      <section className="space-y-4">
+      <section className="space-y-3">
         <button 
-          onClick={handleWhatsAppOrder} 
-          className="w-full py-5 rounded-lg bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white font-headline text-lg shadow-[0_20px_40px_rgba(37,211,102,0.2)] hover:scale-[0.98] transition-transform flex items-center justify-center gap-3">
-          <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>chat</span>
-          Confirm Order via WhatsApp
+          onClick={handleWhatsAppOrder}
+          disabled={!paymentConfirmed}
+          className={`w-full py-5 rounded-lg font-headline text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
+            paymentConfirmed 
+              ? 'bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white shadow-[0_20px_40px_rgba(37,211,102,0.2)] hover:scale-[0.98] active:scale-95 cursor-pointer' 
+              : 'bg-stone-200 text-stone-400 cursor-not-allowed shadow-none'
+          }`}>
+          <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>
+            {paymentConfirmed ? 'chat' : 'lock'}
+          </span>
+          {paymentConfirmed ? 'Confirm Order via WhatsApp' : 'Pay first to unlock order'}
         </button>
+        {!paymentConfirmed && (
+          <p className="text-center text-xs text-stone-400 font-medium flex items-center justify-center gap-1">
+            <span className="material-symbols-outlined text-sm">info</span>
+            Complete payment above, then tick the checkbox to proceed
+          </p>
+        )}
       </section>
 
       {/* Footer */}
